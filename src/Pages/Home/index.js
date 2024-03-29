@@ -4,14 +4,6 @@ import TypingComponent from '../../Components/Home/TypingComponent';
 
 const Home = () => {
 
-    // const desktopPresentation = (
-
-    // );
-
-    // const mobilePresentation = (
-
-    // );
-
     return (
         <div className="w-full flex items-center justify-center h-screen">
             <div className="w-5/6">
