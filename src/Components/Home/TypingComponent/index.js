@@ -2,26 +2,36 @@ import React, {useEffect, useState} from 'react';
 
 const TypingComponent = ({text}) => {
 
-    const [charIndex, setCharIndex] = useState(0)
+    const [charIndex, setCharIndex] = useState(0);
+    const [animationClass, setAnimationClass] = useState("opacity-0")
 
     useEffect(() => {
-        const typingInterval = setInterval(() => {
-            console.log("Interval triggered!");
-            var newCharIndex = charIndex + 1;
-            if (newCharIndex > text.length) {
-                clearInterval(typingInterval);
-            } else {
-                setCharIndex(newCharIndex);
-            }
-            console.log("Char index: " + charIndex);
-        }, 500) 
-        return () => {
-            clearInterval(typingInterval);
+        let nextIndex = charIndex + 1;
+        console.log(`char index from ${text}, index: ${charIndex}`)
+        if (charIndex === 0) {
+            setTimeout(() => {
+                setCharIndex(nextIndex);
+                setAnimationClass("opacity-100")
+            }, 1500)
+        } else {
+            setTimeout(() => {
+                if (nextIndex !== text.length + 1) {
+                    setCharIndex(nextIndex);
+                }
+            }, 400);
         }
-    },[])
+    },[charIndex]);
+
+    const presentText = () => {
+        let computedString = "";
+        if (charIndex > 0) {
+            computedString = text.slice(0, charIndex);
+        }
+        return computedString;
+    }
 
     return (
-        <p className="text-white text-2xl">{text.slice(0, charIndex)}</p>
+        <p className={`text-white text-4xl duration-500 transition-all ${animationClass}`}>{presentText()}</p>
     )
 }
 
