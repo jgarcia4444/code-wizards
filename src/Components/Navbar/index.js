@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 import NavLink from './NavLink';
+import MobileNavLinks from './MobileNavLinks';
 
 import codeWizardsLogo from '../../Media/Logo/code-wizards-logo.png';
 import useWindowDimensions from '../../Hooks/useWindowDimensions';
@@ -19,7 +20,7 @@ const Navbar = () => {
 
     const renderNavLinks = () => {
         
-            if (width < 529) {
+            if (width < 600) {
                 return <MobileNavLinks links={links} />
             } else {
                 return links.map((linkInfo, i) => <NavLink linkInfo={linkInfo} key={`${i}-${linkInfo.linkText}`} />)
