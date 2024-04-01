@@ -23,8 +23,10 @@ const MobileNavRow = ({linkInfo}) => {
 
     return (
         <div className="flex flex-row items-center justify-start text-white gap-1 transition-all duration-300 hover:cursor-pointer hover:scale-105 py-2 ">
-            {computedIcon()}
-            <p className="text-white">{linkText}</p>
+            <a href={path} className="flex flex-row gap-1">
+                {computedIcon()}
+                <p className="text-white">{linkText}</p>
+            </a>
         </div>
     )
 }
