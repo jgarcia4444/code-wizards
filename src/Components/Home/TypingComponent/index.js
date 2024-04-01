@@ -11,7 +11,7 @@ const TypingComponent = ({text}) => {
         if (charIndex === 0) {
             setTimeout(() => {
                 setCharIndex(nextIndex);
-                setAnimationClass("opacity-100")
+                setAnimationClass("opacity-100");
             }, 1500)
         } else {
             setTimeout(() => {
@@ -31,7 +31,7 @@ const TypingComponent = ({text}) => {
     }
 
     return (
-        <p className={`text-white text-4xl duration-500 transition-all ${animationClass}`}>{presentText()}</p>
+        <p className={`text-white  text-4xl duration-500 transition-all ${animationClass}`}>{presentText()}</p>
     )
 }
 
