@@ -3,8 +3,11 @@ import React, {useState, useEffect} from 'react';
 import NavLink from './NavLink';
 
 import codeWizardsLogo from '../../Media/Logo/code-wizards-logo.png';
+import useWindowDimensions from '../../Hooks/useWindowDimensions';
 
 const Navbar = () => {
+
+    const {height, width} = useWindowDimensions();
 
     const [animatedClassName, setAnimatedClassName] = useState("opacity-0 translate-y-8 scale-0");
 
@@ -12,10 +15,15 @@ const Navbar = () => {
         {path: "/services", linkText: "Services"},
         {path: "/portfolio", linkText: "Portfolio"},
         {path: "/contact", linkText: "Contact"},
-    ]
+    ];
 
     const renderNavLinks = () => {
-        return links.map((linkInfo, i) => <NavLink linkInfo={linkInfo} key={`${i}-${linkInfo.linkText}`} />)
+        
+            if (width < 529) {
+                return <MobileNavLinks links={links} />
+            } else {
+                return links.map((linkInfo, i) => <NavLink linkInfo={linkInfo} key={`${i}-${linkInfo.linkText}`} />)
+            }
     }
 
     useEffect(() => {
