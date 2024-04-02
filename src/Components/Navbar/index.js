@@ -32,7 +32,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <div className={`flex flex-row items-center justify-between w-full absolute top-0 px-4 transition-all duration-1000 border-b-white border-b-2 ${animatedClassName}`}>
+        <div className={`flex flex-row items-center justify-between w-full absolute top-0 px-4 transition-all duration-1000 py-4 ${animatedClassName}`}>
             <div className="">
                 <a href="/" className="block hover:scale-105 transition-all duration-300">
                     <img src={codeWizardsLogo} alt="" className="w-24 h-24" />
