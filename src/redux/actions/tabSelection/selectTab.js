@@ -1,8 +1,14 @@
 
 const selectTab = tabIndex => {
-    return {
-        type: "TAB_SELECTED",
-        tabIndex
+
+    return dispatch => {
+        dispatch({type: "TAB_LOADING"});
+        setTimeout(() => {
+            return dispatch({
+                type: "TAB_SELECTED",
+                tabIndex
+            })
+        }, 1000)
     }
 }
 
