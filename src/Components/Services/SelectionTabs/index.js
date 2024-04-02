@@ -9,7 +9,7 @@ const SelectionTabs = ({services}) => {
     }
 
     return (
-        <div className="flex flex-row  mt-2 overflow-x-auto ">
+        <div className="flex flex-row  mt-2 overflow-x-auto overflow-y-hidden ">
             {renderTabs()}
         </div>
     )
