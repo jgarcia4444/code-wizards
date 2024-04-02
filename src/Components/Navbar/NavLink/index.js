@@ -28,7 +28,7 @@ const NavLink = ({linkInfo}) => {
         <a href={path} className="block text-white transition-all duration-300 hover:scale-105">
             <div className="flex flex-row items-center justify-center gap-2">
                 {computeIcon()}
-                <p className="font-thin hover:font-bold transition-all duration-300">{linkText}</p>
+                <p className="font-thin transition-all duration-300">{linkText}</p>
             </div>
         </a>
     )
