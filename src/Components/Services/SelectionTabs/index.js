@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Tab from './Tab';
 
 const SelectionTabs = ({services}) => {
 
     const renderTabs = () => {
-        return services.map((service, i) => <Tab serviceInfo={service} key={`${i}-${service.title}`} />)
+        return services.map((service, i) => <Tab tabIndex={i} serviceInfo={service} key={`${i}-${service.title}`} />)
     }
 
     return (
@@ -15,4 +16,13 @@ const SelectionTabs = ({services}) => {
     )
 };
 
-export default SelectionTabs;
+const mapStateToProps = state => {
+    return {
+        services: state.tabSelector.services,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    null
+)(SelectionTabs);
