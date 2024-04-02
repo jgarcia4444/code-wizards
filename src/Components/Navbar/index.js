@@ -8,7 +8,7 @@ import useWindowDimensions from '../../Hooks/useWindowDimensions';
 
 const Navbar = () => {
 
-    const {height, width} = useWindowDimensions();
+    const {width} = useWindowDimensions();
 
     const [animatedClassName, setAnimatedClassName] = useState("opacity-0 translate-y-8 scale-0");
 
@@ -29,7 +29,7 @@ const Navbar = () => {
 
     useEffect(() => {
         setAnimatedClassName("opacity-100 translate-y-0 scale-100")
-    })
+    }, [])
 
     return (
         <div className={`flex flex-row items-center justify-between w-full absolute top-0 px-4 transition-all duration-1000 border-b-white border-b-2 ${animatedClassName}`}>

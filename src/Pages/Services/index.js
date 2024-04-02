@@ -26,7 +26,7 @@ const Services = () => {
         <Layout>
             <div className="w-full pt-28 flex flex-col items-start px-2">
                 <h2 className="text-white text-left text-4xl">Services</h2>
-                <SelectionTabs services={serviceObjects} />
+                <SelectionTabs handleTabSelection={tabSelected} selectedIndex={selectedServiceIndex} services={serviceObjects} />
                 {/* Selected Service */}
             </div>
         </Layout>
