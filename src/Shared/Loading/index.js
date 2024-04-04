@@ -13,7 +13,12 @@ const Loading = () => {
         3: "opacity-100 -translate-y-12",
     }
 
+    const runAnimation = () => {
+        // try a while loop
+    }
+
     useEffect(() => {
+        runAnimation();
     },[])
 
     return (
