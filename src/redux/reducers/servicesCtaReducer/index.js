@@ -1,6 +1,6 @@
 
 const initialState = {
-    displayModal: false,
+    displayModal: true,
     serviceSelected: "",
     userInfo: {
         usersName: "",
@@ -23,3 +23,5 @@ const servicesCtaReducer = (state=initialState, action) => {
             };
     }
 }
+
+export default servicesCtaReducer;

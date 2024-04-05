@@ -11,9 +11,7 @@ import ServicesCtaButton from './ServicesCtaButton';
 const SelectedService = ({tabSelector}) => {
 
     const {services, selectedIndex} = tabSelector;
-
     const service = services[selectedIndex];
-
     const {title, description} = service;
 
     const computedImage = () => {
@@ -38,7 +36,7 @@ const SelectedService = ({tabSelector}) => {
     }
 
     return (
-        <div className={`bg-white bg-opacity-10 rounded p-4 flex flex-row w-full mt-4`}>
+        <div className={`bg-white bg-opacity-10 rounded p-4 flex flex-row w-full mt-4 z-0`}>
             <div className="w-1/3 ">
                 {computedImage()}
             </div>
@@ -60,6 +58,7 @@ const SelectedService = ({tabSelector}) => {
 const mapStateToProps = state => {
     return {
         tabSelector: state.tabSelector,
+        servicesCta: state.servicesCta
     }
 }
 
