@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ServicesCtaButton = ({tabSelector}) => {
+const ServicesCtaButton = ({tabSelector, ctaClicked}) => {
 
     const {selectedIndex, services} = tabSelector;
 
@@ -9,7 +9,7 @@ const ServicesCtaButton = ({tabSelector}) => {
     const {title} = selectedService;
 
     const handleCtaClick = () => {
-
+        ctaClicked(title)
     }
 
     return (
@@ -27,7 +27,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        ctaClicked: (serviceTitle) => dispatch(serviceTitle)
     }
 }
 
