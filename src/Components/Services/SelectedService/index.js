@@ -6,6 +6,8 @@ import apps from '../../../Media/Services/apps.png'
 import socialMedia from '../../../Media/Services/social-media.png';
 import marketing from '../../../Media/Services/marketing.png'
 
+import ServicesCtaButton from './ServicesCtaButton';
+
 const SelectedService = ({tabSelector}) => {
 
     const {services, selectedIndex} = tabSelector;
@@ -47,7 +49,9 @@ const SelectedService = ({tabSelector}) => {
                 <div className="">
                     <p className="text-lg">{description}</p>
                 </div>
-                <div className=""></div>
+                <div className="flex flex-row items-center w-full justify-end mt-4">
+                    <ServicesCtaButton />
+                </div>
             </div>
         </div>
     )
