@@ -5,7 +5,7 @@ import { CiMonitor, CiMobile2, CiInstagram, CiMail } from "react-icons/ci";
 import selectTab from '../../../../redux/actions/tabSelection/selectTab';
 
 const Tab = ({serviceInfo, selectTab, tabIndex, selectedIndex}) => {
-    const {icon, title} = serviceInfo;
+    const { title} = serviceInfo;
 
     const [iconColor, setIconColor] = useState(tabIndex === 0 ? "#000" : "#fff"); 
     const iconSize = 24;
@@ -29,10 +29,10 @@ const Tab = ({serviceInfo, selectTab, tabIndex, selectedIndex}) => {
         } else {
             setIconColor("#fff");
         }
-    }, [selectedIndex])
+    }, [selectedIndex, tabIndex])
 
     return (
-        <div onClick={() => selectTab(tabIndex)} className={`bg-white ${tabIndex === selectedIndex ? "bg-opacity-100 text-black" : "bg-opacity-10 text-white"}  flex flex-row items-center gap-1 py-2 px-8 mr-4 rounded hover:cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-opacity-50`}>
+        <div onClick={() => selectTab(tabIndex)} className={`bg-white ${tabIndex === selectedIndex ? "bg-opacity-100 text-black" : "bg-opacity-10 text-white"}  flex flex-row items-center gap-1 py-2 px-8 mr-4 rounded hover:cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-opacity-50  active:bg-opacity-30`}>
             {computedIcon()}
             <p className="">{title}</p>
         </div>

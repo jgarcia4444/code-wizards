@@ -12,7 +12,7 @@ const serviceInfo = [
 const initialState = {
     selectedIndex: 0,
     services: serviceInfo,
-    loading: true,
+    loading: false,
 }
 
 const tabSelectionReducer = (state=initialState, action) => {
@@ -21,11 +21,11 @@ const tabSelectionReducer = (state=initialState, action) => {
             return {
                 ...state,
                 loading: true,
+                selectedIndex: action.tabIndex,
             }
         case "TAB_SELECTED":
             return {
                 ...state,
-                selectedIndex: action.tabIndex,
                 loading: false,
             }
         default:

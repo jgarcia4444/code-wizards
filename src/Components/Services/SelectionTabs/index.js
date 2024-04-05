@@ -10,7 +10,7 @@ const SelectionTabs = ({services}) => {
     }
 
     return (
-        <div className="flex flex-row w-full  mt-2 overflow-x-auto overflow-y-hidden ">
+        <div className="flex flex-row w-full mt-2 overflow-x-auto overflow-y-hidden ">
             {renderTabs()}
         </div>
     )

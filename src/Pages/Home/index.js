@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <div className="w-full flex items-center justify-center h-screen">
+            <div className="w-full flex items-center justify-center h-screen px-4">
                 <div className="w-5/6">
                     <div className="flex flex-row items-end justify-center">
                         <TitleFirstLetter text="C" />
