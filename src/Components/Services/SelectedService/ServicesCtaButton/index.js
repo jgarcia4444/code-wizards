@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import ctaClicked from '../../../../redux/actions/servicesCtaActions/ctaClicked';
+
 const ServicesCtaButton = ({tabSelector, ctaClicked}) => {
 
     const {selectedIndex, services} = tabSelector;
@@ -27,7 +29,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        ctaClicked: (serviceTitle) => dispatch(serviceTitle)
+        ctaClicked: (serviceTitle) => dispatch(ctaClicked(serviceTitle)),
     }
 }
 

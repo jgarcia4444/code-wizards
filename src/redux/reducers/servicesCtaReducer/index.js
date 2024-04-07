@@ -1,6 +1,6 @@
 
 const initialState = {
-    displayModal: true,
+    displayModal: false,
     serviceSelected: "",
     userInfo: {
         usersName: "",
@@ -11,6 +11,12 @@ const initialState = {
 
 const servicesCtaReducer = (state=initialState, action) => {
     switch(action.type) {
+        case "DISMISS_MODAL":
+            return {
+                ...state,
+                serviceSelected: "",
+                displayModal: false,
+            }
         case "CALL_TO_ACTION_CLICKED":
             return {
                 ...state,

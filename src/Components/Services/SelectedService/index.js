@@ -25,7 +25,7 @@ const SelectedService = ({tabSelector}) => {
                 break;
             case "Social":
                 imgSrc = socialMedia;
-                break;
+                break; 
             case 'Marketing':
                 imgSrc = marketing;
                 break;
