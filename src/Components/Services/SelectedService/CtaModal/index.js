@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import dismissModal from '../../../../redux/actions/servicesCtaActions/dismissModal';
 
+import CtaForm from './CtaForm';
+
 const CtaModal = ({servicesCta, dismissModal}) => {
 
     const {userInfo, serviceSelected} = servicesCta;
@@ -26,12 +28,10 @@ const CtaModal = ({servicesCta, dismissModal}) => {
         <div className="fixed w-screen h-screen top-0 left-0 bg-black bg-opacity-70 z-50 flex flex-col items-center justify-center ">
             <div className="w-1/2 flex flex-row items-center justify-between">
                 <h3 className="text-white text-2xl">{dynamicServiceDescription()} Service</h3>
-                <div onClick={() => dismissModal()} className="bg-white w-8 h-8 rounded-full flex items-center justify-center font-bold mb-2
+                <div onClick={() => dismissModal()} className="bg-white w-8 h-8 rounded-full flex items-center justify-center font-bold mb-2 hover:cursor-pointer transition-all duration-300 hover:scale-110
                 ">X</div>
             </div>
-            <div className="w-1/2 h-1/2 bg-white rounded bg-opacity-60 flex flex-col items-center justify-center gap-2">
-
-            </div>
+            <CtaForm />
         </div>
     )
 }
