@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import RoundedInput from '../../../../../Shared/Input/RoundedInput';
+import CtaSubmitButton from './CtaSubmitButton';
 
 const CtaForm = () => {
 
@@ -9,6 +10,7 @@ const CtaForm = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [consent, setConsent] = useState(false);
+    const [formValid, setFormValid] = useState(false);
 
 
     const fNameInput = {
@@ -58,12 +60,32 @@ const CtaForm = () => {
         type: "tel"
     }
 
+    const checkRequirements = () => {
+        const values = [fName, lName, email, phoneNumber];
+        if (values.every(val => val !== "") === true) {
+            setFormValid(true);
+        } else {
+            setFormValid(false);
+        }
+    };
+
+    const submitForm = () => {
+        if (formValid === true) {
+            // Send form to my email
+        }
+    }
+
+    useEffect(() => {
+        checkRequirements();
+    },[fName, lName, email, phoneNumber, consent])
+
 
     return (
         <div className="w-1/2 h-1/2 bg-white rounded bg-opacity-60 flex flex-col items-center justify-evenly p-2">
             {nameInputs}
             <RoundedInput inputInfo={emailInputInfo} />
             <RoundedInput inputInfo={phoneInputInfo} />
+            <CtaSubmitButton requirementsMet={formValid} handlePress={submitForm} />
         </div>
     )
 }
