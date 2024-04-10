@@ -36,15 +36,15 @@ const SelectedService = ({tabSelector}) => {
     }
 
     return (
-        <div className={`bg-white bg-opacity-10 rounded p-4 flex flex-row w-full mt-4 z-0`}>
+        <div className={`bg-white bg-opacity-10 rounded p-4 flex flex-row w-full mt-4 z-0 overflow-y-auto`}>
             <div className="w-1/3 ">
                 {computedImage()}
             </div>
-            <div className="w-2/3 flex flex-col px-4">
+            <div className="w-2/3 flex flex-col h-3/4 px-4 overflow-y-auto">
                 <div className="">
                     <h3 className="font-bold text-4xl text-black">{title}</h3>
                 </div>
-                <div className="">
+                <div className="h-24 overflow-y-auto">
                     <p className="text-lg">{description}</p>
                 </div>
                 <div className="flex flex-row items-center w-full justify-end mt-4">
