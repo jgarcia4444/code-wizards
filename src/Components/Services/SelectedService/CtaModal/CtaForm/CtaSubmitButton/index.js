@@ -2,7 +2,7 @@ import React from 'react';
 
 const CtaSubmitButton = ({requirementsMet, handlePress}) => {
 
-    const submitButtonAppearance = requirementsMet === true ? "border-none bg-black text-white" : "border-2 border-black";
+    const submitButtonAppearance = requirementsMet === true ? "border-2 border-black bg-black text-white" : "border-2 border-black";
 
 
     return (

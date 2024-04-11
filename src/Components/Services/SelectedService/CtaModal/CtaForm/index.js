@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import RoundedInput from '../../../../../Shared/Input/RoundedInput';
 import CtaSubmitButton from './CtaSubmitButton';
+import ConsentInput from '../../../../../Shared/Input/ConsentInput';
 
 const CtaForm = () => {
 
@@ -61,9 +62,13 @@ const CtaForm = () => {
     }
 
     const checkRequirements = () => {
-        const values = [fName, lName, email, phoneNumber];
+        const values = [fName, lName, email, phoneNumber,];
         if (values.every(val => val !== "") === true) {
-            setFormValid(true);
+            if (consent === true) {
+                setFormValid(true);
+            } else {
+                setFormValid(false);
+            }
         } else {
             setFormValid(false);
         }
@@ -81,10 +86,11 @@ const CtaForm = () => {
 
 
     return (
-        <div className="w-1/2 h-1/2 bg-white rounded bg-opacity-60 flex flex-col items-center justify-evenly p-2">
+        <div className="w-1/2 h-1/2 bg-white rounded bg-opacity-60 flex flex-col items-center justify-evenly p-2 ">
             {nameInputs}
             <RoundedInput inputInfo={emailInputInfo} />
             <RoundedInput inputInfo={phoneInputInfo} />
+            <ConsentInput updateConsent={() => setConsent(!consent)} consent={consent}/>
             <CtaSubmitButton requirementsMet={formValid} handlePress={submitForm} />
         </div>
     )
