@@ -8,8 +8,8 @@ const CtaSubmitButton = ({requirementsMet, handlePress, sending}) => {
 
 
     return (
-        <div onClick={handlePress} className={`${submitButtonAppearance} font-bold w-full rounded flex items-center justify-center py-2 transition-all duration-500 z-50`}>
-            {sending === true ? <CiCoffeeCup />  : "Send"}
+        <div onClick={handlePress} className={`${submitButtonAppearance} font-bold w-full rounded flex items-center justify-center py-2 transition-all duration-500 z-50 hover:cursor-pointer`}>
+            {sending === true ? <CiCoffeeCup className="animate-spin" color={"#fff"} size={24} />  : "Send"}
         </div>
     )
 }

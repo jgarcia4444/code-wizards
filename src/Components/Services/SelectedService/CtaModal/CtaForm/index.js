@@ -5,35 +5,33 @@ import RoundedInput from '../../../../../Shared/Input/RoundedInput';
 import CtaSubmitButton from './CtaSubmitButton';
 import ConsentInput from '../../../../../Shared/Input/ConsentInput';
 
+import updateUserInfo from '../../../../../redux/actions/servicesCtaActions/updateUserInfo';
 import sendUsersInfo from '../../../../../redux/actions/servicesCtaActions/sendUsersInfo';
 
-const CtaForm = ({sendUsersInfo}) => {
+const CtaForm = ({sendUsersInfo, servicesCta, updateUserInfo}) => {
 
-    const [fName, setFName] = useState("");
-    const [lName, setLName] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [email, setEmail] = useState("");
-    const [consent, setConsent] = useState(false);
+    const {userInfo, selectedService} = servicesCta;
+    const {fName, lName, email, phoneNumber, consent} = userInfo;
     const [formValid, setFormValid] = useState(false);
 
 
     const fNameInput = {
         val: fName,
-        changeFunc: newValue => setFName(newValue.target.value),
+        changeFunc: newValue => updateUserInfo({fName: newValue.target.value}),
         placeholder: "First",
         type: "text"
     };
 
     const lNameInput = {
         val: lName,
-        changeFunc: newValue => setLName(newValue.target.value),
+        changeFunc: newValue => updateUserInfo({lName: newValue.target.value}),
         placeholder: "Last",
         type: "text"
     };
 
     const emailInputInfo = {
         val: email,
-        changeFunc: newValue => setEmail(newValue.target.value),
+        changeFunc: newValue => updateUserInfo({email: newValue.target.value}),
         placeholder: "Email",
         type: "email"
     }
@@ -59,7 +57,7 @@ const CtaForm = ({sendUsersInfo}) => {
 
     const phoneInputInfo = {
         val: phoneNumber,
-        changeFunc: newValue => setPhoneNumber(newValue.target.value),
+        changeFunc: newValue => updateUserInfo({phoneNumber: newValue.target.value}),
         placeholder: "Phone Number",
         type: "tel"
     }
@@ -98,19 +96,26 @@ const CtaForm = ({sendUsersInfo}) => {
             {nameInputs}
             <RoundedInput inputInfo={emailInputInfo} />
             <RoundedInput inputInfo={phoneInputInfo} />
-            <ConsentInput updateConsent={() => setConsent(!consent)} consent={consent}/>
+            <ConsentInput updateConsent={() => updateUserInfo({consent: !consent})} consent={consent}/>
             <CtaSubmitButton requirementsMet={formValid} handlePress={submitForm} />
         </div>
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        servicesCta: state.servicesCta,
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         sendUsersInfo: info => dispatch(sendUsersInfo(info)),
+        updateUserInfo: info => dispatch(updateUserInfo(info)),
     }
 }
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(CtaForm);
