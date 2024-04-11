@@ -1,15 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { CiCoffeeCup } from "react-icons/ci";
 
-const CtaSubmitButton = ({requirementsMet, handlePress}) => {
+const CtaSubmitButton = ({requirementsMet, handlePress, sending}) => {
 
     const submitButtonAppearance = requirementsMet === true ? "border-2 border-black bg-black text-white" : "border-2 border-black";
 
 
     return (
-        <div onClick={handlePress} className={`${submitButtonAppearance} font-bold w-full rounded flex items-center justify-center py-2 transition-all duration-500`}>
-            Send
+        <div onClick={handlePress} className={`${submitButtonAppearance} font-bold w-full rounded flex items-center justify-center py-2 transition-all duration-500 z-50`}>
+            {sending === true ? <CiCoffeeCup />  : "Send"}
         </div>
     )
 }
 
-export default CtaSubmitButton;
+const mapStateToProps = state => {
+    return {
+        sending: state.servicesCta.sending
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    null
+)(CtaSubmitButton);

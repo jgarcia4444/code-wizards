@@ -6,11 +6,19 @@ const initialState = {
         usersName: "",
         phoneNumber: "",
         email: "",
-    }
+    },
+    sending: false,
 };
 
 const servicesCtaReducer = (state=initialState, action) => {
     switch(action.type) {
+        case "SENDING_USERS_INFO":
+            return {
+                ...state,
+                userInfo: {
+                    ...action.userInfo
+                }
+            }
         case "DISMISS_MODAL":
             return {
                 ...state,

@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react'
+import { connect } from 'react-redux';
 
 import RoundedInput from '../../../../../Shared/Input/RoundedInput';
 import CtaSubmitButton from './CtaSubmitButton';
 import ConsentInput from '../../../../../Shared/Input/ConsentInput';
 
-const CtaForm = () => {
+import sendUsersInfo from '../../../../../redux/actions/servicesCtaActions/sendUsersInfo';
+
+const CtaForm = ({sendUsersInfo}) => {
 
     const [fName, setFName] = useState("");
     const [lName, setLName] = useState("");
@@ -76,7 +79,12 @@ const CtaForm = () => {
 
     const submitForm = () => {
         if (formValid === true) {
-            // Send form to my email
+            let info = {
+                usersName: fName + " " + lName,
+                email,
+                phoneNumber
+            }
+            sendUsersInfo(info)
         }
     }
 
@@ -96,4 +104,13 @@ const CtaForm = () => {
     )
 }
 
-export default CtaForm;
+const mapDispatchToProps = dispatch => {
+    return {
+        sendUsersInfo: info => dispatch(sendUsersInfo(info)),
+    }
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(CtaForm);
