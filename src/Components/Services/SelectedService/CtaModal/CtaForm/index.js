@@ -10,7 +10,7 @@ import sendUsersInfo from '../../../../../redux/actions/servicesCtaActions/sendU
 
 const CtaForm = ({sendUsersInfo, servicesCta, updateUserInfo}) => {
 
-    const {userInfo, selectedService} = servicesCta;
+    const {userInfo, serviceSelected} = servicesCta;
     const {fName, lName, email, phoneNumber, consent} = userInfo;
     const [formValid, setFormValid] = useState(false);
 
@@ -77,11 +77,8 @@ const CtaForm = ({sendUsersInfo, servicesCta, updateUserInfo}) => {
 
     const submitForm = () => {
         if (formValid === true) {
-            let info = {
-                usersName: fName + " " + lName,
-                email,
-                phoneNumber
-            }
+            let info = Object.assign({}, userInfo);
+            info["serviceSelected"] = serviceSelected;
             sendUsersInfo(info)
         }
     }

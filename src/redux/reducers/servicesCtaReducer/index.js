@@ -10,6 +10,7 @@ const initialState = {
         consent: false,
     },
     sending: false,
+    infoSent: false
 };
 
 const servicesCtaReducer = (state=initialState, action) => {
@@ -26,13 +27,11 @@ const servicesCtaReducer = (state=initialState, action) => {
             return {
                 ...state,
                 sending: false,
+                infoSent: true,
             }
         case "SENDING_USERS_INFO":
             return {
                 ...state,
-                userInfo: {
-                    ...action.userInfo
-                },
                 sending: true,
             }
         case "DISMISS_MODAL":
