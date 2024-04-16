@@ -16,7 +16,7 @@ const ServicesCtaButton = ({tabSelector, ctaClicked}) => {
 
     return (
         <div className="bg-white w-full md:w-auto text-center py-2 px-4 rounded transition-all duration-300 animate-pulse font-bold hover:cursor-pointer hover:scale-105 active:scale-90 active:animate-none" onClick={handleCtaClick}>
-            Start Your Project!
+            Contact Us!
         </div>
     )
 };
