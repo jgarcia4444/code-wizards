@@ -6,6 +6,7 @@ import SelectionTabs from '../../Components/Services/SelectionTabs';
 import Loading from '../../Shared/Loading';
 import SelectedService from '../../Components/Services/SelectedService';
 import CtaModal from '../../Components/Services/SelectedService/CtaModal';
+import PageHeader from '../../Shared/Headers/PageHeader';
 
 const Services = ({loading, displayModal}) => {
 
@@ -14,7 +15,7 @@ const Services = ({loading, displayModal}) => {
             {displayModal === true &&
             <CtaModal />}
             <div className="w-full pt-28 flex flex-col items-start px-4 z-0">
-                <h2 className="text-white text-left text-4xl z-0">Services</h2>
+                <PageHeader headerText={"Services"} />
                 <SelectionTabs  />
                 {loading === true ?
                     <Loading />
