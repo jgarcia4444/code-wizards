@@ -32,22 +32,22 @@ const SelectedService = ({tabSelector}) => {
             default:
                 imgSrc = websites;
         }
-        return <img src={imgSrc} className="rounded" alt="Service Representation" />
+        return <img src={imgSrc} className="rounded object-cover h-full" alt="Service Representation" />
     }
 
     return (
-        <div className={`bg-white bg-opacity-20 rounded p-4 flex flex-row w-full mt-4 z-0 h-96 `}>
-            <div className="w-1/3 ">
+        <div className={`bg-white bg-opacity-20 rounded p-4 flex flex-row flex-wrap w-full mt-4 z-0 `}>
+            <div className="md:w-1/3 w-full flex items-center justify-center  ">
                 {computedImage()}
             </div>
-            <div className="w-2/3 flex flex-col h-full px-4">
+            <div className="w-full md:w-2/3 flex flex-col h-full md:px-4 mt-2 md:mt-0">
                 <div className="">
                     <h3 className="font-bold text-4xl text-black">{title}</h3>
                 </div>
                 <div className="overflow-y-auto h-3/4">
                     <p className="text-lg">{description}</p>
                 </div>
-                <div className="flex flex-row items-center w-full justify-end mt-4">
+                <div className="flex flex-row items-center w-full justify-end md:mt-4 mt-2">
                     <ServicesCtaButton />
                 </div>
             </div>
