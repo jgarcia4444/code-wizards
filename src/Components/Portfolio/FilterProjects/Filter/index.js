@@ -38,7 +38,7 @@ const Filter = ({text, webTapped, mobileTapped, webSelected}) => {
 
 const mapStateToProps = state => {
     return {
-        webSelected: state.portfolio.tabs.webSelected,
+        webSelected: state.portfolio.filter.webSelected,
     }
 }
 

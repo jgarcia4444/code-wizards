@@ -1,6 +1,6 @@
 
 const initialState = {
-    tabs: {
+    filter: {
         webSelected: true,
     },
 };
@@ -10,16 +10,16 @@ const portfolioReducer = (state=initialState, action) => {
         case "MOBILE_SELECTED":
             return {
                 ...state,
-                tabs: {
-                    ...state.tabs,
+                filter: {
+                    ...state.filter,
                     webSelected: false,
                 }
             }
         case "WEB_SELECTED":
             return {
                 ...state,
-                tabs: {
-                    ...state.tabs,
+                filter: {
+                    ...state.filter,
                     webSelected: true,
                 }
             }
