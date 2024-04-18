@@ -9,12 +9,12 @@ import Project from '../../Objects/Portfolio/Project';
 
 const Portfolio = () => {
 
-    let diningWithZach = new Project("Dining with Zach Bainter", "Catering", "https://www.zachbainter.com/ ", "");
-    let songaaGrants = new Project("Songa Grants", "Federally Funded Tribal Grants", "https://songaagrants.com/", "");
-    let solleLife = new Project("Solle Life", "Natural Supplements", "https://solle-life.vercel.app/", "");
-    let strongAfFitness = new Project("Strong AF Fitness", "Let's Get Strong AF Together", "https://strong-af-fitness.vercel.app/", "");
-    let dreamBelieveAchieve = new Project("Dream Believe Achieve", "Inspirational Quotes", "https://apps.apple.com/us/app/dream-believe-achieve/id1531356264", "");
-    let bloodPressureNumbers = new Project("Blood Pressure Numbers", "Track your blood pressure", "https://apps.apple.com/us/app/blood-pressure-numbers/id1534661419?platform=iphone", "")
+    let diningWithZach = {title: "Dining with Zach Bainter", subTitle: "Catering", websiteUrl: "https://www.zachbainter.com/ ", img: ""};
+    let songaaGrants = {title: "Songa Grants", subTitle: "Federally Funded Tribal Grants", websiteUrl: "https://songaagrants.com/", img: ""};
+    let solleLife = {title: "Solle Life", subTitle: "Natural Supplements", websiteUrl: "https://solle-life.vercel.app/", img: ""};
+    let strongAfFitness = {title: "Strong AF Fitness", subTitle: "Let's Get Strong AF Together", websiteUrl: "https://strong-af-fitness.vercel.app/", img: ""};
+    let dreamBelieveAchieve = {title: "Dream Believe Achieve", subTitle: "Inspirational Quotes", websiteUrl: "https://apps.apple.com/us/app/dream-believe-achieve/id1531356264", img: ""};
+    let bloodPressureNumbers = {title: "Blood Pressure Numbers", subTitle: "Track your blood pressure", websiteUrl: "https://apps.apple.com/us/app/blood-pressure-numbers/id1534661419?platform=iphone", img: ""}
     const portfolioInfo = {
         web: [diningWithZach, songaaGrants, solleLife, strongAfFitness],
         mobile: [dreamBelieveAchieve, bloodPressureNumbers]

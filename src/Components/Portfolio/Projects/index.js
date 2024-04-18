@@ -11,7 +11,7 @@ const Projects = ({portfolioInfo, webSelected}) => {
     }
 
     return (
-        <div className="w-full h-1/2 overflow-y-auto flex flex-row flex-wrap justify-around items-center gap-2">
+        <div className="w-full h-1/2 overflow-y-auto flex flex-row flex-wrap justify-start items-center gap-12 mt-4">
             {renderProjects()}
         </div>
     )
