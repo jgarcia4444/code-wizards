@@ -1,14 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import ProjectCard from './ProjectCard';
+
 const Projects = ({portfolioInfo, webSelected}) => {
 
     const renderProjects = () => {
-
+        let selectedProjects = webSelected === true ? portfolioInfo.web : portfolioInfo.mobile;
+        return selectedProjects.map((projectInfo, i) => <ProjectCard key={`${i}-${projectInfo.title}`} info={projectInfo} />)
     }
 
     return (
-        <div className="w-full h-1/2 overflow-y-auto flex flex-row flex-wrap justify-around items-center">
+        <div className="w-full h-1/2 overflow-y-auto flex flex-row flex-wrap justify-around items-center gap-2">
             {renderProjects()}
         </div>
     )
