@@ -20,7 +20,7 @@ const Navbar = () => {
 
     const renderNavLinks = () => {
         
-            if (width < 600) {
+            if (width < 688) {
                 return <MobileNavLinks links={links} />
             } else {
                 return links.map((linkInfo, i) => <NavLink linkInfo={linkInfo} key={`${i}-${linkInfo.linkText}`} />)
