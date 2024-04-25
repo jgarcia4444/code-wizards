@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import useWindowDimensions from '../../../Hooks/useWindowDimensions';
 
 import ProjectCard from './ProjectCard';
+import ProjectCarousel from './ProjectCarousel';
 
 const Projects = ({portfolioInfo, webSelected}) => {
 
@@ -11,19 +13,15 @@ const Projects = ({portfolioInfo, webSelected}) => {
     const renderProjects = () => {
         let selectedProjects = webSelected === true ? portfolioInfo.web : portfolioInfo.mobile;
         if (width < 688) {
-            return <ProjectsCarousel selectedProjects={selectedProjects}/>
+            return <ProjectCarousel selectedProjects={selectedProjects}/>
         } else {
             return selectedProjects.map((projectInfo, i) => <ProjectCard key={`${i}-${projectInfo.title}`} info={projectInfo} />)
         }
     }
 
     return (
-<<<<<<< HEAD
-        <div className="flex flex-row gap-4 overflow-x-auto w-full py-4">
-=======
-        <div className="flex flex-row flex-wrap gap-4 w-full py-4">
->>>>>>> 069d888
-            {renderProjects()}
+        <div className="md:flex md:flex-row md:flex-wrap items-center justify-between p-2 gap-2 overflow-x-auto  bg-white bg-opacity-10 mt-2 w-full rounded">
+            {renderProjects()} 
         </div>
     )
 }

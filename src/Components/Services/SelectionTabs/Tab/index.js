@@ -31,7 +31,7 @@ const Tab = ({serviceInfo, selectTab, tabIndex, selectedIndex}) => {
         }
     }, [selectedIndex, tabIndex])
 
-    return (
+    return (    
         <div onClick={() => selectTab(tabIndex)} className={`bg-white ${tabIndex === selectedIndex ? "bg-opacity-100 text-black" : "bg-opacity-10 text-white"}  flex flex-row items-center gap-1 py-2 px-8 mr-4 rounded hover:cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-opacity-50  active:bg-opacity-30`}>
             {computedIcon()}
             <p className="">{title}</p>
