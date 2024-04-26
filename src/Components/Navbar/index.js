@@ -10,8 +10,6 @@ const Navbar = () => {
 
     const {width} = useWindowDimensions();
 
-    const [animatedClassName, setAnimatedClassName] = useState("opacity-0 translate-y-8 scale-0");
-
     const links = [
         {path: "/services", linkText: "Services"},
         {path: "/portfolio", linkText: "Portfolio"},
@@ -27,12 +25,8 @@ const Navbar = () => {
             }
     }
 
-    useEffect(() => {
-        setAnimatedClassName("opacity-100 translate-y-0 scale-100")
-    }, [])
-
     return (
-        <div className={`flex flex-row items-center justify-between w-full absolute top-0 px-4 transition-all duration-1000 py-4 ${animatedClassName}`}>
+        <div className={`flex flex-row items-center justify-between w-full absolute top-0 px-4 transition-all duration-1000 py-4 z-50`}>
             <div className="">
                 <a href="/" className="block hover:scale-105 transition-all duration-300">
                     <img src={codeWizardsLogo} alt="" className="w-24 h-24" />
