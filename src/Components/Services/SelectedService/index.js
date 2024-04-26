@@ -44,7 +44,8 @@ const SelectedService = ({tabSelector}) => {
                 <div className="">
                     <h3 className="font-bold text-4xl text-black">{title}</h3>
                 </div>
-                <div className="overflow-y-auto h-3/4">
+                <ServicesDescription descriptionInfo={description} />
+                <div className="overflow-y-auto h-3/4 ">
                     <p className="text-lg">{description}</p>
                 </div>
                 <div className="flex flex-row items-center w-full justify-end md:mt-4 mt-2">
