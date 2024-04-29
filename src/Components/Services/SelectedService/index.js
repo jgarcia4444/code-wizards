@@ -7,6 +7,7 @@ import socialMedia from '../../../Media/Services/social-media.png';
 import marketing from '../../../Media/Services/marketing.png'
 
 import ServicesCtaButton from './ServicesCtaButton';
+import ServicesDescritption from './ServicesDescription';
 
 const SelectedService = ({tabSelector}) => {
 
