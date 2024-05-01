@@ -8,17 +8,17 @@ const BulletPoint = ({info}) => {
     const {bulletPoint, details} = info;
 
     return (
-        <div className=" mb-2 bg-white bg-opacity-50  transition-all duration-300 rounded p-2 flex flex-row flex-wrap border-2 border-white shadow-inner shadow-white">
-            <div className="w-1/2">
-                <p className=" font-bold text-black">{bulletPoint}</p>
+        <div className={`mb-2 bg-black bg-opacity-60 shadow-inner shadow-black transition-all duration-300 rounded px-2 flex flex-row flex-wrap items-center ${showDetails === true ? "h-20" : "h-10"}`}>
+            <div className="w-1/2 flex flex-row items-center">
+                <p className=" font-bold text-white">{bulletPoint}</p>
             </div>
             <div className="w-1/2 flex flex-row items-center justify-end">
-                <CiCircleChevDown onClick={() => setShowDetails(!showDetails)} className={`transition-all duration-300 hover:cursor-pointer hover:scale-105 ${showDetails === true ? "rotate-180" : "rotate-0"}`} color={"#000"} size={24} />
+                <CiCircleChevDown onClick={() => setShowDetails(!showDetails)} className={`transition-all duration-300 hover:cursor-pointer hover:scale-105 ${showDetails === true ? "rotate-180" : "rotate-0"}`} color={"#fff"} size={24} />
             </div>
             {showDetails === true &&
             (
                 <div className="w-full">
-                    <p className="">{details}</p>
+                    <p className="text-white">{details}</p>
                 </div>
             )
             }
