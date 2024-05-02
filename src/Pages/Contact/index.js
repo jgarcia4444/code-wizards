@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { CiPhone, CiMail, CiClock2 } from "react-icons/ci";
+
+import useWindowDimensions from '../../Hooks/useWindowDimensions';
 
 import Layout from '../../Layout';
 import PageHeader from '../../Shared/Headers/PageHeader';
@@ -7,8 +9,10 @@ import ContactDetail from '../../Components/Contact/ContactDetail';
 
 const Contact = () => {
 
+    const {width} = useWindowDimensions();
+
     const iconSize = 32;
-    const iconColor = "#000";
+    const [iconColor, setIconColor] = useState("#000");
 
     const renderContactDetails = () => {
         let contactDetails = [
@@ -20,11 +24,19 @@ const Contact = () => {
         return contactDetails.map((details, i) => <ContactDetail details={details} key={`${i}-${details.title}`} />)
     }
 
+    useEffect(() => {
+        if (width < 688) {
+            setIconColor("#fff");
+        } else {
+            setIconColor("#000");
+        }
+    }, [width])
+
     return (
         <Layout>
             <div className="w-full flex flex-col pt-28 px-4">
                 <PageHeader headerText={"Contact"} />
-                <div className="bg-white bg-opacity-20 rounded p-4 flex flex-row mt-12 ">
+                <div className={`${width > 688 ? "bg-white" : ""} bg-opacity-20 rounded p-4 flex flex-row flex-wrap mt-12 `}>
                     {renderContactDetails()}
                 </div>
             </div>
