@@ -14,6 +14,25 @@ const ContactDetail = ({details}) => {
         </div>
     )
 
+    const configureHref = () => {
+        if (title === "Phone Number") {
+            return "tel:2087034922";
+        } else {
+            return "mailto:jgarciadev4444@gmail.com"
+        }
+    }
+
+    const configureInfo = () => {
+        switch (title) {
+            case "Phone Number":
+                return <a href={configureHref()} className="">{info}</a>
+            case "Email":
+                return <a href={configureHref()} className="">{info}</a>
+            default: 
+                return title;
+        }
+    }
+
     const renderContactDetail = () => {
         if (width > 688) {
             return  (
@@ -23,7 +42,7 @@ const ContactDetail = ({details}) => {
                         <h4 className="text-xl font-bold">{title}</h4>
                     </div>
                     <div className="w-full mb-2">
-                        <p className="">{info}</p>
+                        <p className="">{configureInfo()}</p>
                     </div>
                 </div>
             )
@@ -35,7 +54,7 @@ const ContactDetail = ({details}) => {
                     </div>
                     <div className="w-1/2 flex flex-col">
                         <div className="w-full font-thin">{title}</div>
-                        <div className="w-full font-bold text-sm md:text-lg">{info}</div>
+                        <div className="w-full font-bold text-sm md:text-lg">{configureInfo()}</div>
                     </div>
                 </div>
             )
