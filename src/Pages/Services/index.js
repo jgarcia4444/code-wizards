@@ -14,7 +14,7 @@ const Services = ({loading, displayModal}) => {
         <Layout>
             {displayModal === true &&
             <CtaModal />}
-            <div className="w-full pt-28 flex flex-col items-start px-4 z-0">
+            <div className="w-full pt-2 flex flex-col items-start px-4 z-0">
                 <PageHeader headerText={"Services"} />
                 <SelectionTabs  />
                 {loading === true ?

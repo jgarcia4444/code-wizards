@@ -29,7 +29,7 @@ const Portfolio = () => {
 
     return (
         <Layout>
-            <div className="w-full flex flex-col pt-28 px-4">
+            <div className="w-full flex flex-col pt-2 px-4">
                 <PageHeader headerText={"Portfolio"} />
                 <FilterProjects />
                 <Projects portfolioInfo={portfolioInfo}/>

@@ -20,7 +20,7 @@ const Projects = ({portfolioInfo, webSelected}) => {
     }
 
     return (
-        <div className="md:flex md:flex-row md:flex-wrap items-center justify-between p-2 gap-2 overflow-x-auto  bg-white bg-opacity-10 mt-2 w-full rounded">
+        <div className="md:flex md:flex-row md:flex-wrap items-center justify-evenly p-2 gap-2 overflow-x-auto mt-2 w-full rounded">
             {renderProjects()} 
         </div>
     )

@@ -34,9 +34,9 @@ const Contact = () => {
 
     return (
         <Layout>
-            <div className="w-full flex flex-col pt-28 px-4">
+            <div className="w-full flex flex-col pt-2 px-4">
                 <PageHeader headerText={"Contact"} />
-                <div className={`${width > 688 ? "bg-white" : ""} bg-opacity-20 rounded p-4 flex flex-row flex-wrap mt-12 `}>
+                <div className={`${width > 688 ? "bg-white" : ""} bg-opacity-20 rounded flex flex-row flex-wrap mt-12 `}>
                     {renderContactDetails()}
                 </div>
             </div>

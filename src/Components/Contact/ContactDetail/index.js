@@ -17,7 +17,7 @@ const ContactDetail = ({details}) => {
     const renderContactDetail = () => {
         if (width > 688) {
             return  (
-                <div className="w-1/3 relative flex flex-col items-center justify-center">\
+                <div className="w-1/3 relative flex flex-col items-center justify-center p-2">\
                     {iconButton}
                     <div className="mt-2 w-full">
                         <h4 className="text-xl font-bold">{title}</h4>
