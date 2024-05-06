@@ -1,14 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
 
 import CarouselProject from './CarouselProject';
 import CarouselButtons from './CarouselButtons';
 
-const ProjectCarousel = ({selectedProjects}) => {
+const ProjectCarousel = ({selectedProjects, webSelected}) => {
 
     const [projectIndex, setProjectIndex] = useState(0);
 
     const presentProject = () => {
-        let selectedProject = selectedProjects[projectIndex];
+        var selectedProject;
+        if (webSelected === false) {
+            if (projectIndex > selectedProjects.length - 1) {
+                setProjectIndex(selectedProjects.length - 1);
+            }
+            selectedProject = selectedProjects[projectIndex];
+        } else {
+            selectedProject = selectedProjects[projectIndex];
+        }
         return <CarouselProject projectInfo={selectedProject}/>
     };
 
@@ -28,7 +37,7 @@ const ProjectCarousel = ({selectedProjects}) => {
             let previousIndex = projectIndex - 1;
             setProjectIndex(previousIndex);
         }
-    }
+    };
 
     return (
         <div className="w-full relative">
@@ -38,5 +47,13 @@ const ProjectCarousel = ({selectedProjects}) => {
     )
 };
 
+const mapStateToProps = state => {
+    return {
+        webSelected: state.portfolio.filter.webSelected,
+    }
+}
 
-export default ProjectCarousel;
+export default connect(
+    mapStateToProps, 
+    null
+)(ProjectCarousel);
