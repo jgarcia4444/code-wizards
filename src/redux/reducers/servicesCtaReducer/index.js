@@ -10,11 +10,16 @@ const initialState = {
         consent: false,
     },
     sending: false,
-    infoSent: false
+    infoSent: false,
+    showConfirmation: false,
 };
 
 const servicesCtaReducer = (state=initialState, action) => {
     switch(action.type) {
+        case "DISMISS_CONFIRMATION":
+            return {
+                ...initialState,
+            }
         case "UPDATE_USER_INFO":
             return {
                 ...state,
@@ -28,6 +33,7 @@ const servicesCtaReducer = (state=initialState, action) => {
                 ...state,
                 sending: false,
                 infoSent: true,
+                showConfirmation: true,
             }
         case "SENDING_USERS_INFO":
             return {

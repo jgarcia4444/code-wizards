@@ -1,6 +1,5 @@
 import React from 'react'
 import useWindowDimensions from '../../../Hooks/useWindowDimensions';
-import { render } from '@testing-library/react';
 
 const ContactDetail = ({details}) => {
 
@@ -8,19 +7,24 @@ const ContactDetail = ({details}) => {
 
     const {icon, title, info} = details;
 
-    const iconButton = (
-        <div className={`w-16 h-16 rounded-full flex items-center justify-center ${width > 688 ? "-mt-16 bg-white bg-opacity-30 shadow " : "bg-black bg-opacity-70 shadow-inner"} shadow-black `}>
-            {icon}
-        </div>
-    )
-
+    
     const configureHref = () => {
         if (title === "Phone Number") {
             return "tel:2087034922";
-        } else {
+        } else if (title === "Email") {
             return "mailto:jgarciadev4444@gmail.com"
+        } else {
+            return "#"
         }
     }
+    
+    const iconButton = (
+        <div className={`w-16 h-16 rounded-full flex items-center justify-center ${width > 688 ? "-mt-16 bg-white bg-opacity-30 shadow " : "bg-black bg-opacity-70 shadow-inner"} shadow-black `}>
+            <a href={configureHref()} className="">
+                {icon}
+            </a>
+        </div>
+    )
 
     const configureInfo = () => {
         switch (title) {
