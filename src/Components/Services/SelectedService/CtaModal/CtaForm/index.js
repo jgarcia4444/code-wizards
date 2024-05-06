@@ -102,7 +102,7 @@ const CtaForm = ({sendUsersInfo, servicesCta, updateUserInfo, dismissConfirmatio
             {showConfirmation === true ?
             (
                 <div className="flex flex-col ">
-                    <div className="text-center">
+                    <div className="md:text-center">
                         <h3 className="text-2xl font-bold">Request Received!</h3>
                     </div>
                     <div className="mt-2">
