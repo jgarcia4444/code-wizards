@@ -12,11 +12,12 @@ const Layout = ({children}) => {
     return (
         <>
             <Navbar />
-            <div className={`w-full  overflow-x-hidden relative py-4 transition-all duration-500 ${animatedClass}`}>
+            <div className={`w-full overflow-y-hidden  overflow-x-hidden relative py-4 transition-all duration-500 ${animatedClass}`}>
                 {children}
             </div>
         </>
     )
 }
+//
 
 export default Layout;
